@@ -1,0 +1,37 @@
+body {
+    font-size: 14px;
+    line-height: 1.5;
+    font-family: 'Times New Roman', Times, serif;
+    background-color :lightpink;
+}
+
+nav {
+    background-color: palevioletred;
+    padding: 10px;
+}
+
+nav ul li {
+    display: inline-block;
+    margin-right: 10px;
+    
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: black;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-weight: 200;c
+    
+}
+
+.content {
+    padding: 10px;
+}
+
+img {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+}
+
+
