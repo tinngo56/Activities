@@ -1,0 +1,97 @@
+
+{
+    "products": [
+    {
+      "id": 1,
+      "title": "Basketball Player: Michael Jordan",
+      "price": 109.95,
+      "description": "Canvas painting of Michael Jordan",
+      "category": "Small Canvas",
+      
+      "url":"./t1.webp",
+      "rating": { "rate": 4.0, "count": 120 }
+    },
+    {
+      "id": 2,
+      
+      "title": "Artificial Intelligence",
+      "price": 200,
+      "description": "An abstract painting of artificial intelligence",
+      "category":"Small Canvas",
+      "url":"./t2.webp",
+      "rating": { "rate": 4.1, "count": 259 }
+    },
+    {
+      "id": 3,
+      "title": "Player",
+      "price":50.99,
+      "description": "A van Gogh style painting of an American football player",
+      "category":"Small Canvas",
+      "url":"./t3.webp",
+      "rating": { "rate": 4.7, "count": 500 }
+    },
+    {
+      "id": 4,
+      "title": "Sunset",
+      "price":110,
+      "description": "A hand-drawn sailboat circled by birds on the sea at sunrise",
+      "category":"Sketches",
+      "url":"./t12.webp",
+      "rating": { "rate": 3.1, "count": 430 }
+    },
+    {
+      "id": 5,
+      "title": "Cat",
+      "price":30,
+      "description": "A cat riding a motorcycle",
+      "category":"Sketches",
+      "url":"./t11.webp",
+      "rating": { "rate": 4.6, "count": 400 }
+    },
+    {
+      "id": 6,
+      "title": "Bird",
+      "price":50,
+      "description": "Bird made with pencil.",
+      "category":"Sketches",
+      "url":"./t9.png",
+      "rating": { "rate": 3.9, "count": 70 }
+    },
+    {
+      "id": 7,
+      "title": "Abstract Fluid painting",
+      "price":145.99,
+      "description": "Abstract painting of red and blue colors.",
+      "category":"Watercolor painting",
+      "url":"./t19.png",
+      "rating": { "rate": 3, "count": 400 }
+    },
+    {
+      "id": 8,
+      "title": "Flower",
+      "price":100,
+      "description": "Painting of red flowers.",
+      "category":"Watercolor painting",
+      "url":"./t21.png",
+      "rating": { "rate": 1.9, "count": 100 }
+    },
+    {
+      "id": 9,
+      "title": "Strokes",
+      "price":65,
+       "description": "An abstract painting using water color.",
+       "category":"Watercolor painting",
+       "url":"./t22.png",
+      "rating": { "rate": 3.3, "count": 203 }
+    },
+    {
+      "id": 10,
+      "title": "Cyborg",
+      "price":220,
+      "description": "A futuristic neon lit cyborg face",
+      "category":"Digital art",
+      "url":"./t13.webp",
+      "rating": { "rate": 2.9, "count": 470 }
+    }
+  ]
+}
