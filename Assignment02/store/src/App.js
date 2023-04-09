@@ -144,11 +144,6 @@ export const App = () => {
         )}
         {render_products(ProductsCategory)}
       </div>
-      <div>
-        <h1>{counter}</h1>
-        <button onClick={() => setCounter(counter + 1)}>+</button>
-        <button onClick={() => setCounter(counter - 1)}>-</button>
-      </div>
     </div>
   );
 }; //end App
