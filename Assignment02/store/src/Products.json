@@ -6,7 +6,7 @@
     "description": "Canvas painting of Michael Jordan",
     "category": "Small Canvas",
 
-    "image": "./t1.webp",
+    "image": "img/t1.webp",
     "rating": { "rate": 4.0, "count": 120 },
     "count": 0
   },
@@ -17,7 +17,7 @@
     "price": 200,
     "description": "An abstract painting of artificial intelligence",
     "category": "Small Canvas",
-    "image": "./t2.webp",
+    "image": "img/t2.webp",
     "rating": { "rate": 4.1, "count": 259 },
     "count": 0
   },
@@ -27,7 +27,7 @@
     "price": 50.99,
     "description": "A van Gogh style painting of an American football player",
     "category": "Small Canvas",
-    "image": "./t3.webp",
+    "image": "img/t3.webp",
     "rating": { "rate": 4.7, "count": 500 },
     "count": 0
   },
@@ -37,7 +37,7 @@
     "price": 110,
     "description": "A hand-drawn sailboat circled by birds on the sea at sunrise",
     "category": "Sketches",
-    "image": "./t12.webp",
+    "image": "img/t12.webp",
     "rating": { "rate": 3.1, "count": 430 },
     "count": 0
   },
@@ -47,7 +47,7 @@
     "price": 30,
     "description": "A cat riding a motorcycle",
     "category": "Sketches",
-    "image": "./t11.webp",
+    "image": "img/t11.webp",
     "rating": { "rate": 4.6, "count": 400 },
     "count": 0
   },
@@ -57,7 +57,7 @@
     "price": 50,
     "description": "Bird made with pencil.",
     "category": "Sketches",
-    "image": "./t9.png",
+    "image": "img/t9.png",
     "rating": { "rate": 3.9, "count": 70 },
     "count": 0
   },
@@ -67,7 +67,7 @@
     "price": 145.99,
     "description": "Abstract painting of red and blue colors.",
     "category": "Watercolor painting",
-    "image": "./t19.png",
+    "image": "img/t19.png",
     "rating": { "rate": 3, "count": 400 },
     "count": 0
   },
@@ -77,7 +77,7 @@
     "price": 100,
     "description": "Painting of red flowers.",
     "category": "Watercolor painting",
-    "image": "./t21.png",
+    "image": "img/t21.png",
     "rating": { "rate": 1.9, "count": 100 },
     "count": 0
   },
@@ -87,7 +87,7 @@
     "price": 65,
     "description": "An abstract painting using water color.",
     "category": "Watercolor painting",
-    "image": "./t22.png",
+    "image": "img/t22.png",
     "rating": { "rate": 3.3, "count": 203 },
     "count": 0
   },
@@ -97,7 +97,7 @@
     "price": 220,
     "description": "A futuristic neon lit cyborg face",
     "category": "Digital art",
-    "image": "./t13.webp",
+    "image": "img/t13.webp",
     "rating": { "rate": 2.9, "count": 470 },
     "count": 0
   }

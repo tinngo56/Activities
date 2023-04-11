@@ -2,6 +2,7 @@ import "./App.css";
 import React, { useState, useEffect } from "react";
 import Products from "./Products.json";
 import Categories from "./Categories.json";
+import logo from "./img/t1.webp";
 
 // render something HTML :
 export const App = () => {
@@ -12,10 +13,28 @@ export const App = () => {
   const [counter, setCounter] = useState(0);
   const [cart, setCart] = useState([]);
   const [cartTotal, setCartTotal] = useState(0);
+  const [showMore, setShowMore] = useState(false);
+  const alertPlaceholder = document.getElementById('liveAlertPlaceholder')
+const form = document.getElementById('checkout-form')
+const inputCard = document.querySelector('#inputCard')
+const alertTrigger = document.getElementById('submit-btn')
+const summaryCard = document.querySelector('.card')
+const summaryList = document.querySelector('.card > ul')
+const alert = (message, type) => {
+  const wrapper = document.createElement('div')
+  wrapper.innerHTML = [
+  `<div class="alert alert-${type} alert-dismissible" role="alert">`,
+  ` <div>${message}</div>`,
+  ' <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>',
+  '</div>'
+  ].join('')
+  alertPlaceholder.append(wrapper)
+  }
+  
   // more code
   // var ProductsCategory = Products;
 
-  const render_products = (ProductsCategory) => {
+  const render_products = (Products) => {
     return (
       <div className="category-section fixed">
         <h2 className="text-3xl font-extrabold tracking-tight text-gray-600 category-title">
@@ -24,15 +43,22 @@ export const App = () => {
 
         <div
           className="m-6 p-3 mt-10 ml-0 grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-6 xl:gap-x-10"
-          style={{ maxHeight: "650px", overflowY: "scroll" }}
+          style={{ maxHeight: "300px", overflowY: "scroll" }}
         >
-          {ProductsCategory.map((product) => (
+          {Products.map(product => (
             <div key={product.id} className="group relative shadow-lg">
+              <button type="button" variant="light" onClick={() => addToCart({product})}>
+        {"                  "}
+        +{"              "}
+      </button>
+      <button type="button" onClick={() => removeFromCart(product)}>
+        -
+      </button>{" "}
               <div className="min-h-80 bg-gray-200 aspect-w-1 aspect-h-1 rounded-md overflow-hidden group-hover:opacity-75 lg:h-100 lg:aspect-none">
                 <img
                   alt="Product Image"
-                  src={product.image}
-                  className="w-full h-full object-center object-cover lg:w-full lg:h-full"
+                  src={logo}
+                  className="fluid"
                 />
               </div>
               <div className="flex justify-between p-3">
@@ -55,13 +81,7 @@ export const App = () => {
                 </p>
               </div>
               <div>
-                <button type="button" variant="light" onClick={() => addToCart({product})}>
-        {" "}
-        +{" "}
-      </button>
-      <button type="button" onClick={() => removeFromCart(product)}>
-        -
-      </button>{" "}
+                
               </div>
             </div>
           ))}
@@ -72,8 +92,8 @@ export const App = () => {
   
 
   const listProducts = Products.map((el) => (
+    
     <div key={el.id}>
-      <img class="img-fluid" src={el.image} width={100} />
       {el.title}
       {el.category}
       {el.price}
@@ -155,6 +175,7 @@ export const App = () => {
         ProductsCategory.length
       )}
       
+      
       <div
         className="h-screen  bg-slate-800 p-3 xl:basis-1/5"
         style={{ minWidth: "50%" }}
@@ -196,13 +217,17 @@ export const App = () => {
           Products.length,
           ProductsCategory.length
         )}<div>
+          <div>{listProducts}</div>
           
         <div>Items in Cart :</div>
         <div>{cartProducts}</div>
         <div>Order total to pay :{cartTotal}</div>
+        
       </div>
-        {render_products(ProductsCategory)}
-
+      
+      {render_products(ProductsCategory)}
+          
+        
       </div>
     </div>
     
