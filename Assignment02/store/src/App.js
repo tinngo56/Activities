@@ -1,8 +1,7 @@
 import "./App.css";
-import React, { useState } from "react";
-import { Products } from "./Products";
-import { Categories } from "./Categories";
-
+import React, { useState, useEffect } from "react";
+import Products from "./Products.json";
+import Categories from "./Categories.json";
 
 // render something HTML :
 export const App = () => {
@@ -11,13 +10,14 @@ export const App = () => {
   const [ProductsCategory, setProductsCategory] = useState(Products);
   const [query, setQuery] = useState("");
   const [counter, setCounter] = useState(0);
+  const [cart, setCart] = useState([]);
+  const [cartTotal, setCartTotal] = useState(0);
   // more code
   // var ProductsCategory = Products;
 
   const render_products = (ProductsCategory) => {
     return (
       <div className="category-section fixed">
-        {console.log("Step 3 : in render_products ")}
         <h2 className="text-3xl font-extrabold tracking-tight text-gray-600 category-title">
           Products ({ProductsCategory.length})
         </h2>
@@ -26,10 +26,9 @@ export const App = () => {
           className="m-6 p-3 mt-10 ml-0 grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-6 xl:gap-x-10"
           style={{ maxHeight: "650px", overflowY: "scroll" }}
         >
-          {/* Loop Products */}
-          {ProductsCategory.map((product, index) => (
-            <div key={index} className="group relative shadow-lg">
-              <div className=" min-h-80 bg-gray-200 aspect-w-1 aspect-h-1 rounded-md overflow-hidden group-hover:opacity-75 lg:h-100 lg:aspect-none">
+          {ProductsCategory.map((product) => (
+            <div key={product.id} className="group relative shadow-lg">
+              <div className="min-h-80 bg-gray-200 aspect-w-1 aspect-h-1 rounded-md overflow-hidden group-hover:opacity-75 lg:h-100 lg:aspect-none">
                 <img
                   alt="Product Image"
                   src={product.image}
@@ -56,15 +55,65 @@ export const App = () => {
                 </p>
               </div>
               <div>
-                <h1>{counter}</h1>
-                <button onClick={() => setCounter(counter + 1)}>+</button>
-                <button onClick={() => setCounter(counter - 1)}>-</button>
+                <button type="button" variant="light" onClick={() => addToCart({product})}>
+        {" "}
+        +{" "}
+      </button>
+      <button type="button" onClick={() => removeFromCart(product)}>
+        -
+      </button>{" "}
               </div>
             </div>
           ))}
         </div>
       </div>
     );
+  };
+  
+
+  const listProducts = Products.map((el) => (
+    <div key={el.id}>
+      <img class="img-fluid" src={el.image} width={100} />
+      {el.title}
+      {el.category}
+      {el.price}
+      <button type="button" onClick={() => removeFromCart(el)}>
+        -
+      </button>{" "}
+      <button type="button" variant="light" onClick={() => addToCart(el)}>
+        {" "}
+        +{" "}
+      </button>
+    </div>
+  ));
+
+  const addToCart = (el) => {
+    setCart([...cart, el]);
+  };
+
+  const removeFromCart = (el) => {
+    let hardCopy = [...cart];
+    hardCopy = hardCopy.filter((cartItem) => cartItem.id !== el.id);
+    setCart(hardCopy);
+  };
+
+  const cartProducts = cart.map((el) => (
+    <div key={el.id}>
+      <img class="img-fluid" src={el.image} width={30} />
+      {el.title}${el.price}
+    </div>
+  ));
+
+  useEffect(() => {
+    total();
+  }, [cart]);
+
+  const total = () => {
+    let totalVal = 0;
+    for (let i = 0; i < cart.length; i++) {
+      totalVal += cart[i].price;
+    }
+    setCartTotal(totalVal);
   };
 
   function handleClick(tag) {
@@ -98,12 +147,14 @@ export const App = () => {
   };
 
   return (
+    
     <div className="flex fixed flex-row">
       {console.log(
         "Step 2 : Return App :",
         Products.length,
         ProductsCategory.length
       )}
+      
       <div
         className="h-screen  bg-slate-800 p-3 xl:basis-1/5"
         style={{ minWidth: "50%" }}
@@ -116,6 +167,7 @@ export const App = () => {
           <p className="text-gray-700 text-white">
             by - <b style={{ color: "orange" }}>Tin and Tejal</b>
           </p>
+          
           <div className="py-10">
             {Categories ? <p className="text-white">Tags : </p> : ""}
             {Categories.map((tag) => (
@@ -124,12 +176,14 @@ export const App = () => {
                 className="inline-block bg-amber-600 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mt-2"
                 onClick={() => {
                   handleClick(tag);
+                  
                 }}
               >
                 {tag}
               </button>
             ))}
           </div>
+          
           <div className="py-10">
             <p>Search Bar</p>
             <input type="search" value={query} onChange={handleChange} />
@@ -141,9 +195,16 @@ export const App = () => {
           "Before render :",
           Products.length,
           ProductsCategory.length
-        )}
+        )}<div>
+          
+        <div>Items in Cart :</div>
+        <div>{cartProducts}</div>
+        <div>Order total to pay :{cartTotal}</div>
+      </div>
         {render_products(ProductsCategory)}
+
       </div>
     </div>
+    
   );
 }; //end App
