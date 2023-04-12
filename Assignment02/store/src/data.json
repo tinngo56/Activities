@@ -6,7 +6,7 @@
     "description": "Canvas painting of Michael Jordan",
     "category": "Small Canvas",
 
-    "image": "img/t1.webp",
+    "image": "./img/t1.webp",
     "rating": { "rate": 4.0, "count": 120 },
     "count": 0
   },
