@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import './App.css';
+
 function App() {
   const [cartItems, setCartItems] = useState([]);
 
@@ -40,7 +41,7 @@ function App() {
 
   return (
     <Router>
-      <div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-body-tertiary">
+      <div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center" style={{backgroundColor:'plum'}}>
       <div class="col-md-5 p-lg-5 mx-auto my-5">
         <h1 class="display-4 fw-normal">Safety Scan</h1>
         <p class="lead fw-normal">PPE Detection Software</p>
@@ -86,14 +87,13 @@ function App() {
 function HomePage() {
   return (
     <div>
+      <img src='C:\coms 319\final_project\src\img\Screenshot 2023-05-02 195810.png'></img>
      <h2 class="display-5"></h2>
     <div class="d-md-flex flex-md-equal w-100 my-md-3 ps-md-3">
     <div class="text-bg-dark me-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
       <div class="my-3 py-3">
         <h2 class="display-5">Upload picture here.</h2>
-        {/* <p class="lead">And an even wittier subheading.</p> */}
-        <img src="C:\coms 319\final_project\check.png" alt="check"></img> 
-        {/* cannot add a image, to be fixed */}
+        
       </div>
       <div class="bg-body-tertiary shadow-sm mx-auto" ></div>
     </div>
@@ -111,7 +111,7 @@ function HomePage() {
     <div class="text-bg-dark me-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
       <div class="my-3 py-3">
         <h2 class="display-5">Upload picture here.</h2>
-        {/* <p class="lead">And an even wittier subheading.</p> */}
+        {/* <p class="lead">And an even wittier subheading.</p> */} 
         <img src="C:\coms 319\final_project\check.png" alt="check"></img> 
         {/* cannot add a image, to be fixed */}
       </div>
