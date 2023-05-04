@@ -87,7 +87,6 @@ function App() {
 function HomePage() {
   return (
     <div>
-      <img src='C:\coms 319\final_project\src\img\Screenshot 2023-05-02 195810.png'></img>
      <h2 class="display-5"></h2>
     <div class="d-md-flex flex-md-equal w-100 my-md-3 ps-md-3">
     <div class="text-bg-dark me-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
@@ -284,6 +283,23 @@ function TeamPage() {
 
 function CartPage({ cartItems, handleRemoveFromCart }) {
   const total = cartItems.reduce((acc, item) => acc + item.price, 0);
+  const [showCheckoutForm, setShowCheckoutForm] = useState(false);
+
+  const handleCheckoutClick = () => {
+    setShowCheckoutForm(true);
+  };
+  const [fullName, setFullName] = useState('');
+  const [email, setEmail] = useState('');
+  const [address, setAddress] = useState('');
+  const [city, setCity] = useState('');
+  const [state, setState] = useState('');
+  const [zipCode, setZipCode] = useState('');
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // code to submit the form data
+  };
+
 // checkout form is still to be implemented.
   return (
     <div>
@@ -297,8 +313,106 @@ function CartPage({ cartItems, handleRemoveFromCart }) {
         ))}
       </ul>
       <p>Total: ${total}</p>
+
+      <button onClick={handleCheckoutClick}>Checkout</button>
+      {showCheckoutForm && (
+        <form onSubmit={handleSubmit}>
+        <div className="mb-3">
+          <label htmlFor="fullName" className="form-label">
+            Full Name
+          </label>
+          <input
+            type="text"
+            className="form-control"
+            id="fullName"
+            value={fullName}
+            onChange={(e) => setFullName(e.target.value)}
+            required
+          />
+        </div>
+        <div className="mb-3">
+          <label htmlFor="email" className="form-label">
+            Email Address
+          </label>
+          <input
+            type="email"
+            className="form-control"
+            id="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            required
+          />
+        </div>
+        <div className="mb-3">
+          <label htmlFor="address" className="form-label">
+            Address
+          </label>
+          <input
+            type="text"
+            className="form-control"
+            id="address"
+            value={address}
+            onChange={(e) => setAddress(e.target.value)}
+            required
+          />
+        </div>
+        <div className="row mb-3">
+          <div className="col">
+            <label htmlFor="city" className="form-label">
+              City
+            </label>
+            <input
+              type="text"
+              className="form-control"
+              id="city"
+              value={city}
+              onChange={(e) => setCity(e.target.value)}
+              required
+            />
+          </div>
+          <div className="col">
+            <label htmlFor="state" className="form-label">
+              State
+            </label>
+            <input
+              type="text"
+              className="form-control"
+              id="state"
+              value={state}
+              onChange={(e) => setState(e.target.value)}
+              required
+            />
+          </div>
+          <div className="col">
+            <label htmlFor="zipCode" className="form-label">
+              Zip Code
+            </label>
+            <input
+              type="text"
+              className="form-control"
+              id="zipCode"
+              value={zipCode}
+              onChange={(e) => setZipCode(e.target.value)}
+              required
+            />
+          </div>
+        </div>
+        <button type="submit" className="btn btn-primary">
+          Place Order
+        </button>
+      </form>
+      )}
     </div>
   );
 }
+
+
+
+
+
+
+
+
+
 
 export default App;
